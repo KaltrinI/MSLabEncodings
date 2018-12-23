@@ -17,6 +17,9 @@ namespace MultimediskiSistemi
         {
             string source;
 
+            Console.WriteLine("Enter character and probability of characters in format :\nchar probability\nWhen finished write done");
+
+
             while ((source=Console.ReadLine())!="done")
             {
                 string[] parts = source.Split(" ");
