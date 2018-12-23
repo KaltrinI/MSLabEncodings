@@ -1,12 +1,17 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace MultimediskiSistemi
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            //LZWEncoding.Solve();
+            //ArithmeticEncoding.Solve();
+            //HuffmanEncoding.Solve();
         }
+
     }
+    
 }
