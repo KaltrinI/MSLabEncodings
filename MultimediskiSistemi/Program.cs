@@ -7,7 +7,7 @@ namespace MultimediskiSistemi
     {
         static void Main()
         {
-            //LZWEncoding.Solve();
+            LZWEncoding.Solve();
             //ArithmeticEncoding.Solve();
             //HuffmanEncoding.Solve();
         }

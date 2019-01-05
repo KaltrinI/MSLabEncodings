@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Globalization;
+using System.IO;
 
 namespace MultimediskiSistemi
 {
@@ -17,8 +18,8 @@ namespace MultimediskiSistemi
 
         public static void Solve()
         {
-            Console.WriteLine("Enter string to encode");
-            input = Console.ReadLine();
+            Console.WriteLine("Enter filename to encode");
+            input = File.ReadAllText(Console.ReadLine());
             Dictionary<char, decimal> probability = new Dictionary<char, decimal>();
 
             Console.WriteLine("Enter character and probability of characters in format :\nchar probability\nWhen finished write done");

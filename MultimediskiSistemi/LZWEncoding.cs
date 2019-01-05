@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
+
 namespace MultimediskiSistemi
 {
     class LZWEncoding
@@ -9,7 +12,8 @@ namespace MultimediskiSistemi
         public static void Solve()
         {
             
-            string input = Console.ReadLine();
+            //string input = Console.ReadLine();
+            string input = File.ReadAllText(Console.ReadLine());
             int i = 1;
 
             foreach (var c in input)
@@ -34,17 +38,34 @@ namespace MultimediskiSistemi
                     strl = 2;
                 }
             }
-
+            StringBuilder stringBuilder=new StringBuilder();
             while (start <= dictionary.Count)
-                Console.Write(GetIndex(start++) + " ");
-
+            {
+                var ind = GetIndex(start++);
+                Console.Write(ind + " ");
+                stringBuilder.Append(ind + " ");
+            }
             //last character of last string
             var last = dictionary.First(x => x.Value == start - 1).Key;
             last = last.Substring(last.Length - 1);
-            Console.Write(dictionary[last]);
+            Console.WriteLine(dictionary[last]);
+            stringBuilder.Append(dictionary[last]);
 
+            PrintDictionary();
+            CompressionRatio(input,stringBuilder.ToString());
             Console.ReadKey();
 
+        }
+
+        private static void CompressionRatio(string input,string output)
+        {
+            Console.WriteLine("Compression ratio:" + input.Length * 1.0 / output.Length);
+        }
+
+        private static void PrintDictionary()
+        {
+            foreach (var item in dictionary)
+                Console.WriteLine(item.Value + " " + item.Key);
         }
 
         private static int GetIndex(int i)
