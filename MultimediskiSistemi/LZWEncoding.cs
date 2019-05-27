@@ -15,22 +15,36 @@ namespace MultimediskiSistemi
             //string input = Console.ReadLine();
             string input = File.ReadAllText(Console.ReadLine());
             int i = 1;
-
+            /*
             foreach (var c in input)
             {
                 if (!dictionary.ContainsKey(c.ToString()))
                     dictionary.Add(c.ToString(), i++);
             }
-
-
+            */
+            dictionary.Add("/", i++);
+            dictionary.Add("a", i++);
+            dictionary.Add("b", i++);
+            dictionary.Add("o", i++);
+            dictionary.Add("w", i++);
+            //https://www.youtube.com/watch?v=I7u43zqrROM
             int start = i;
             int strl = 2;
             for (int j = 0; j + strl <= input.Length;)
             {
                 var str = input.Substring(j, strl);
 
+
                 if (dictionary.ContainsKey(str))
+                {
+                    if (j + strl == input.Length)
+                    {
+                        dictionary.Add("str\n", i++);
+                        break;
+                    }
                     strl++;
+                }
+                    
                 else
                 {
                     j += strl - 1;
